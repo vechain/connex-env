@@ -1,0 +1,46 @@
+{
+  "name": "connex-env",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "fetch-releases": "ts-node -O '{\"module\": \"commonjs\"}' --files src/fetch-sync-releases.ts",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "custom-protocol-detection": "^1.0.1",
+    "register-service-worker": "^1.5.2",
+    "spectre.css": "^0.5.8",
+    "ua-parser-js": "^0.7.19",
+    "vue": "^2.5.21",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^3.12.0",
+    "@types/node": "^10.12.19",
+    "@types/ua-parser-js": "^0.7.32",
+    "@vechain/connex": "^1.0.0",
+    "@vue/cli-plugin-pwa": "^3.3.0",
+    "@vue/cli-plugin-typescript": "^3.3.0",
+    "@vue/cli-service": "^3.3.0",
+    "follow-redirects": "^1.6.1",
+    "js-yaml": "^3.12.1",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.0.0",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
