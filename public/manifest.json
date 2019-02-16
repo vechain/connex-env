@@ -1,6 +1,6 @@
 {
-  "name": "connex-env",
-  "short_name": "connex-env",
+  "name": "Connex Environment",
+  "short_name": "Env",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
