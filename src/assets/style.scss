@@ -1,5 +1,9 @@
-
-@import 'node_modules/spectre.css/src/spectre';
+@import "node_modules/spectre.css/src/spectre";
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
 
 .text-serif {
   font-family: Georgia, Times, Times New Roman, serif;

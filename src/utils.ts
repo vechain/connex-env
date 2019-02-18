@@ -1,5 +1,5 @@
 export const targetHref = (() => {
-    if (window.location.hash) {
+    if (window.location.hash && window.location.hash.includes('/')) {
         return window.location.hash.slice(1)
     }
     return ''

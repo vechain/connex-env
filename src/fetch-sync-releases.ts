@@ -67,7 +67,7 @@ function httpGet(url: string) {
 }
 
 fetchReleases().then(assets => {
-    writeFileSync(Path.resolve(__dirname, 'sync-releases.json'), JSON.stringify(assets), 'utf8')
+    writeFileSync(Path.resolve(__dirname, 'assets', 'sync-releases.json'), JSON.stringify(assets), 'utf8')
 }).catch(err => {
     // tslint:disable-next-line:no-console
     console.error(err)
