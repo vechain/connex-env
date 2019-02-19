@@ -1,6 +1,19 @@
+
+const target = window.location.hash && window.location.hash.includes('/') ?
+    window.location.hash.slice(1) : ''
+
 export const targetHref = (() => {
-    if (window.location.hash && window.location.hash.includes('/')) {
-        return window.location.hash.slice(1)
+    if (target.startsWith('/')) {
+        const i = target.indexOf('/', 1)
+        return i > 0 ? target.slice(i + 1) : target
+    }
+    return target
+})()
+
+export const targetNetwork = (() => {
+    if (target.startsWith('/')) {
+        const i = target.indexOf('/', 1)
+        return i > 0 ? target.slice(1, i) : ''
     }
     return ''
 })()

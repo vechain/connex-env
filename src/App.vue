@@ -2,7 +2,7 @@
     <div class="app">
         <div>
             <div v-if="targetHref" class="hero container grid-lg">
-                <Bootstrap :target="targetHref"/>
+                <Bootstrap/>
                 <div class="text-center">
                     <p class="btn btn-link">Suggested Downloads</p>
                     <div>
