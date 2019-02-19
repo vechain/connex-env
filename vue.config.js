@@ -1,6 +1,6 @@
 module.exports = {
     lintOnSave: false,
-    publicPath: process.env.NODE_ENV === 'production' ? '/connex-env/' : '/',
+    publicPath: '/',
     pwa: {
         workboxOptions: {
             skipWaiting: true,
