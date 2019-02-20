@@ -27,15 +27,15 @@
                     <div class="text-center">
                         <p>
                             <DownloadAssets
-                                :assets="syncReleases[0].assets"
+                                :assets="$env.syncReleases[0].assets"
                                 type="button"
                                 fallback-href="#downloads"
                             />
                         </p>
-                        <div>v{{syncReleases[0].version}}</div>
+                        <div>v{{$env.syncReleases[0].version}}</div>
                         <div
                             class="text-gray"
-                        >Released at {{new Date(syncReleases[0].releaseDate).toLocaleDateString()}}</div>
+                        >Released at {{new Date($env.syncReleases[0].releaseDate).toLocaleDateString()}}</div>
                     </div>
                 </div>
                 <div class="column col-lg-7 col-md-12 text-center">
@@ -47,11 +47,11 @@
             </div>
             <div class="hero text-center">
                 <h4 class="text-center" id="downloads">All Supported Platforms</h4>
-                <DownloadAssets type="icons" :assets="syncReleases[0].assets"/>
+                <DownloadAssets type="icons" :assets="$env.syncReleases[0].assets"/>
             </div>
             <div class="hero">
                 <h4 class="text-center">All Releases</h4>
-                <div v-for="(release, i) in syncReleases" :key="i">
+                <div v-for="(release, i) in $env.syncReleases" :key="i">
                     <h5>v{{release.version}}</h5>
                     <div>released at {{new Date(release.releaseDate).toLocaleString()}}</div>
                     <DownloadAssets type="table" :assets="release.assets"/>
@@ -63,7 +63,6 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { platform } from '../utils'
 import DownloadAssets from './DownloadAssets.vue'
 
 @Component({
@@ -72,7 +71,7 @@ import DownloadAssets from './DownloadAssets.vue'
     }
 })
 export default class Home extends Vue {
-    private syncReleases = require('../assets/sync-releases') as Release[]
+
 }
 </script>
 <style lang="scss" scoped>

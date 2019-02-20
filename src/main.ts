@@ -3,16 +3,27 @@ import App from './App.vue'
 import './registerServiceWorker'
 import './assets/style.scss'
 import './filters'
-import { targetHref } from './utils'
 import VueAnalytics from 'vue-analytics'
+import env from './env'
 
 Vue.config.productionTip = false
 
-if (targetHref && window.connex) {
-    window.location.href = targetHref
+if (env.target.href && window.connex) {
+    window.location.href = env.target.href
 } else {
+    Vue.use({
+        install(vue: typeof Vue) {
+            vue.prototype.$env = env
+        }
+    })
     Vue.use(VueAnalytics, {
         id: 'UA-132391998-2'
     })
     new App().$mount('#app')
+}
+
+declare module 'vue/types/vue' {
+    interface Vue {
+        $env: typeof env
+    }
 }

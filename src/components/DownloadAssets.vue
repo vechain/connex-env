@@ -40,17 +40,18 @@
     <a
         v-else
         class="btn btn-primary"
-        :href="downloadUrl || fallbackHref"
+        :href="downloadUrl || ''"
         :target="downloadUrl? '_blank': ''"
-        @click="emitFallback"
     >
         Download Sync
-        <span v-if="downloadUrl" style="font-size:0.6rem;">for {{platform | osName}}</span>
+        <span
+            v-if="downloadUrl"
+            style="font-size:0.6rem;"
+        >for {{$env.platform | osName}}</span>
     </a>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
-import { platform } from '../utils'
 
 @Component
 export default class DownloadAssets extends Vue {
@@ -58,19 +59,9 @@ export default class DownloadAssets extends Vue {
     private type !: 'table' | 'icons' | 'button'
     @Prop(Array)
     private assets!: Release.Asset[]
-    @Prop(String)
-    private fallbackHref!: string
 
-    private platform = platform
-
-    @Emit('fallback')
-    private emitFallback() { }
-
-    private get matchedSyncAsset() {
-        return this.assets.find(a => a.platform === this.platform) || null
-    }
     private get downloadUrl() {
-        return this.matchedSyncAsset ? this.matchedSyncAsset.url : ''
+        return this.$env.preferredSyncDownloadUrl(this.assets)
     }
 }
 </script>
