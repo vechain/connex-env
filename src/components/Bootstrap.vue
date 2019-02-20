@@ -21,10 +21,10 @@ export default class Bootstrap extends Vue {
     private targetNetwork = targetNetwork
 
     @Emit('fallback')
-    private emitFallback() { }    
+    private emitFallback() { }
 
     private open() {
-        const vechainAppUrl = `vechain-app://${targetNetwork}/${targetHref}`
+        const vechainAppUrl = `vechain-app://${encodeURIComponent(targetNetwork)}/${encodeURIComponent(targetHref)}`
         customProtocolDetection(vechainAppUrl,
             () => this.emitFallback(),
             // tslint:disable-next-line:no-console
