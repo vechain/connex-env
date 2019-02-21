@@ -1,31 +1,37 @@
 <template>
-    <div class="container hero">
-        <div class="text-center">
-            <div class="p-relative">
-                <div class="p-fixed" style="left:0;top:0;right:0">
-                    <span
-                        class="label label-warning"
-                        style="border-radius: 0px 0px 5px 5px;padding: 0.4rem 1rem;"
-                    >Your browser is missing Connex to run VeChain App</span>
-                </div>
-            </div>
-            <div class="target-box my-2">
-                <span class="target-url text-serif">{{$env.target.href}}</span>
-                <a class="btn btn-primary open-btn" @click="open">Open</a>
-            </div>
-            <p/>
-            <p v-if="!showDownloads">
-                <a class="btn btn-link" @click="showDownloads=true">Download Sync</a>
-            </p>
-            <p v-if="openFailed">Seems VeChain Sync is not installed</p>
-            <template v-if="showDownloads">
-                <p>
-                    <DownloadAssets type="button" :assets="$env.syncReleases[0].assets"/>
-                </p>
-                <h5>All supported platforms</h5>
-                <DownloadAssets type="icons" :assets="$env.syncReleases[0].assets"/>
-            </template>
+    <div class="container text-center" style="margin-top:3rem;">
+        <span
+            class="label label-warning"
+            style="padding: 0.2rem 1rem;"
+        >Your browser is missing Connex to run VeChain App</span>
+        <p/>
+        <div class="target-box my-2">
+            <span class="target-url text-serif">{{$env.target.href}}</span>
+            <a class="btn btn-primary open-btn" @click="open">Open</a>
         </div>
+        <p/>
+        <p v-if="!showDownloads">
+            <a class="btn btn-link" @click="showDownloads=true">Download Sync</a>
+        </p>
+        <p v-if="openFailed">Seems VeChain Sync is not installed</p>
+        <template v-if="showDownloads">
+            <p>
+                <a
+                    v-if="syncDownloadUrl"
+                    class="btn btn-primary"
+                    :href="syncDownloadUrl"
+                    target="_blank"
+                >
+                    Download Sync
+                    <span
+                        v-if="syncDownloadUrl"
+                        style="font-size:0.6rem;"
+                    >for {{$env.platform | osName}}</span>
+                </a>
+            </p>
+            <h5>All supported platforms</h5>
+            <DownloadAssets :assets="$env.syncReleases[0].assets"/>
+        </template>
     </div>
 </template>
 <script lang="ts">
@@ -42,6 +48,9 @@ import DownloadAssets from './DownloadAssets.vue'
 export default class Bootstrap extends Vue {
     private openFailed = false
     private showDownloads = false
+    get syncDownloadUrl() {
+        return this.$env.preferredDownloadUrl(this.$env.syncReleases[0].assets)
+    }
 
     private open() {
         const fallback = () => {

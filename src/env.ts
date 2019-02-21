@@ -44,7 +44,7 @@ const env = {
         }
     },
     syncReleases,
-    preferredSyncDownloadUrl(assets?: Release.Asset[]) {
+    preferredDownloadUrl(assets?: Release.Asset[]) {
         assets = assets || this.syncReleases[0].assets
         const asset = assets.find(a => a.platform === this.platform)
         return asset ? asset.url : null

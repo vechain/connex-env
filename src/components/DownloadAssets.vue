@@ -1,5 +1,5 @@
 <template>
-    <table v-if="type==='table'" class="table table-hover" style="font-size:0.7rem;">
+    <table v-if="table" class="table table-hover" style="font-size:0.7rem;">
         <thead>
             <tr>
                 <th>Platform</th>
@@ -25,7 +25,7 @@
             </tr>
         </tbody>
     </table>
-    <div v-else-if="type==='icons'" class="text-center">
+    <div v-else class="text-center">
         <a
             v-for="(asset, i) in assets"
             :key="i"
@@ -37,32 +37,16 @@
             <div>{{asset.platform | osName}}</div>
         </a>
     </div>
-    <a
-        v-else
-        class="btn btn-primary"
-        :href="downloadUrl || ''"
-        :target="downloadUrl? '_blank': ''"
-    >
-        Download Sync
-        <span
-            v-if="downloadUrl"
-            style="font-size:0.6rem;"
-        >for {{$env.platform | osName}}</span>
-    </a>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 
 @Component
 export default class DownloadAssets extends Vue {
-    @Prop(String)
-    private type !: 'table' | 'icons' | 'button'
+    @Prop(Boolean)
+    private table!: boolean
     @Prop(Array)
     private assets!: Release.Asset[]
-
-    private get downloadUrl() {
-        return this.$env.preferredSyncDownloadUrl(this.assets)
-    }
 }
 </script>
 <style lang="scss" scoped>

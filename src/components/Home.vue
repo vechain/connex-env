@@ -26,11 +26,19 @@
 
                     <div class="text-center">
                         <p>
-                            <DownloadAssets
-                                :assets="$env.syncReleases[0].assets"
-                                type="button"
-                                fallback-href="#downloads"
-                            />
+                            <a
+                                v-if="syncDownloadUrl"
+                                class="btn btn-primary"
+                                :href="syncDownloadUrl"
+                                target="_blank"
+                            >
+                                Download Sync
+                                <span
+                                    v-if="syncDownloadUrl"
+                                    style="font-size:0.6rem;"
+                                >for {{$env.platform | osName}}</span>
+                            </a>
+                            <a v-else class="btn btn-primary" href="#downloads">Download Sync</a>
                         </p>
                         <div>v{{$env.syncReleases[0].version}}</div>
                         <div
@@ -47,14 +55,14 @@
             </div>
             <div class="hero text-center">
                 <h4 class="text-center" id="downloads">All Supported Platforms</h4>
-                <DownloadAssets type="icons" :assets="$env.syncReleases[0].assets"/>
+                <DownloadAssets :assets="$env.syncReleases[0].assets"/>
             </div>
             <div class="hero">
                 <h4 class="text-center">All Releases</h4>
                 <div v-for="(release, i) in $env.syncReleases" :key="i">
                     <h5>v{{release.version}}</h5>
                     <div>released at {{new Date(release.releaseDate).toLocaleString()}}</div>
-                    <DownloadAssets type="table" :assets="release.assets"/>
+                    <DownloadAssets table :assets="release.assets"/>
                     <p/>
                 </div>
             </div>
@@ -71,7 +79,9 @@ import DownloadAssets from './DownloadAssets.vue'
     }
 })
 export default class Home extends Vue {
-
+    get syncDownloadUrl() {
+        return this.$env.preferredDownloadUrl(this.$env.syncReleases[0].assets)
+    }
 }
 </script>
 <style lang="scss" scoped>
