@@ -24,7 +24,9 @@
                             class="py-2 caption"
                         >{{$env.syncReleases[0].version}} for {{$env.platform | osName}} ({{preferredAsset.size | size}})</p>
                     </template>
-                    <a v-else class="btn btn-primary btn-download" href="#downloads">Download Sync</a>
+                    <p v-else>
+                        <a class="btn btn-primary btn-download" href="#downloads">Download Sync</a>
+                    </p>
                 </div>
             </div>
             <div class="column col-lg-7 col-md-12 text-center">
