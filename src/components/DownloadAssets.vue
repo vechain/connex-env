@@ -53,14 +53,17 @@ export default class DownloadAssets extends Vue {
 .asset-block {
     display: inline-block;
     padding: 1.5rem 2.5rem;
-    background-color: rgba(0, 0, 0, 0.05);
     text-align: center;
     color: currentColor;
     user-select: none;
     text-decoration: none;
     margin: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 .asset-block:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 2px #384eb0;
+    background-color: rgba(0, 0, 0, 0.03);
 }
 </style>

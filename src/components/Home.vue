@@ -1,94 +1,56 @@
 <template>
     <div>
-        <div class="hero bg-primary px-2">
+        <div class="bg-primary px-2 head-sec">
             <div class="container grid-lg">
-                <h3>Connex Powered VeChain Wallets</h3>
-            </div>
-        </div>
-        <div class="container grid-lg">
-            <div class="text-center" style="margin:2rem 0rem;">
-                <div class="d-inline-block" style="margin-right: 2rem;">
-                    <img width="32" height="32" src="../assets/sync-logo.png">
-                    <div>Sync</div>
+                <div class="navbar">
+                    <section class="navbar-section" style="margin: 0px -0.4rem;">
+                        <a class="nav-link" href="https://www.vechain.org/">VeChain Foundation</a>
+                    </section>
+                    <section class="navbar-section">
+                        <a class="nav-link" href="https://github.com/vechain">Github</a>
+                    </section>
                 </div>
-                <div class="d-inline-block">
-                    <img width="32" height="32" src="../assets/comet-logo.png">
-                    <div>Comet</div>
-                </div>
-            </div>
-        </div>
-        <div class="container grid-lg">
-            <div class="columns">
-                <div class="column col-lg-5 col-md-12" style="padding-top: 2rem;">
-                    <p
-                        style="font-size:1rem;"
-                    >Sync provides a seamless experience for users and developers. which is designed to provide the superior user experiences on the dApps on the VeChainThor blockchain. It serves as the dApp environment to provide unlimited potential for developers and users.</p>
-
-                    <div class="text-center">
-                        <p>
-                            <a
-                                v-if="syncDownloadUrl"
-                                class="btn btn-primary"
-                                :href="syncDownloadUrl"
-                                target="_blank"
-                            >
-                                Download Sync
-                                <span
-                                    v-if="syncDownloadUrl"
-                                    style="font-size:0.6rem;"
-                                >for {{$env.platform | osName}}</span>
-                            </a>
-                            <a v-else class="btn btn-primary" href="#downloads">Download Sync</a>
-                        </p>
-                        <div>v{{$env.syncReleases[0].version}}</div>
-                        <div
-                            class="text-gray"
-                        >Released at {{new Date($env.syncReleases[0].releaseDate).toLocaleDateString()}}</div>
+                <div class="hero" style="margin-top:-1rem;">
+                    <h1 style="font-weight:200;margin-bottom:0rem;">VeChain Wallets</h1>
+                    <div>
+                        <a
+                            class="nav-link"
+                            href="https://github.com/vechain/connex#introduction"
+                            style="margin: 0px -0.4rem;"
+                        >Connex Powered</a>
                     </div>
                 </div>
-                <div class="column col-lg-7 col-md-12 text-center">
-                    <h5>Light Theme</h5>
-                    <img class="app-ss" src="../assets/sync-ss-light.png">
-                    <h5 style="margin-top:2rem;">Dark Theme</h5>
-                    <img class="app-ss" src="../assets/sync-ss-dark.png">
-                </div>
             </div>
-            <div class="hero text-center">
-                <h4 class="text-center" id="downloads">All Supported Platforms</h4>
-                <DownloadAssets :assets="$env.syncReleases[0].assets"/>
-            </div>
-            <div class="hero">
-                <h4 class="text-center">All Releases</h4>
-                <div v-for="(release, i) in $env.syncReleases" :key="i">
-                    <h5>v{{release.version}}</h5>
-                    <div>released at {{new Date(release.releaseDate).toLocaleString()}}</div>
-                    <DownloadAssets table :assets="release.assets"/>
-                    <p/>
-                </div>
-            </div>
+        </div>
+        <div style="padding:4rem 0rem;">
+            <SyncPage/>
+            <!-- <CometPage/> -->
         </div>
     </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import DownloadAssets from './DownloadAssets.vue'
+import SyncPage from './SyncPage.vue'
+import CometPage from './CometPage.vue'
 
 @Component({
     components: {
-        DownloadAssets
+        SyncPage,
+        CometPage
     }
 })
 export default class Home extends Vue {
-    get syncDownloadUrl() {
-        return this.$env.preferredDownloadUrl(this.$env.syncReleases[0].assets)
-    }
+
 }
 </script>
 <style lang="scss" scoped>
-.app-ss {
-    width: 100%;
-    box-shadow: 0 10px 30px rgba(26, 20, 20, 0.6);
-    border-radius: 3px;
-    border-style: none;
+.nav-link {
+    padding: 0.25rem 0.4rem;
+    color: currentColor;
+}
+
+.head-sec {
+    position: relative;
+    justify-content: center;
 }
 </style>

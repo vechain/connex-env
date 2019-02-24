@@ -1,4 +1,6 @@
+$primary-color: #384eb0;
 @import "node_modules/spectre.css/src/spectre";
+
 html,
 body {
   height: 100%;
@@ -7,4 +9,8 @@ body {
 
 .text-serif {
   font-family: Georgia, Times, Times New Roman, serif;
+}
+
+.caption {
+  font-size: 0.65rem;
 }
