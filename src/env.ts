@@ -6,8 +6,11 @@ const ua = new UAParser(navigator.userAgent, {
     browser: [[/(sync)\/([\w\.]+)/i], [UAParser.BROWSER.NAME, UAParser.BROWSER.VERSION]]
 })
 
-const target = window.location.hash && window.location.hash.includes('/') ?
-    window.location.hash.slice(1) : ''
+const target = (() => {
+    const hash = decodeURIComponent(window.location.hash)
+    return (hash && hash.includes('/')) ?
+        hash.slice(1) : ''
+})()
 
 const env = {
     get platform(): NodeJS.Platform | undefined {
