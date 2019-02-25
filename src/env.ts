@@ -8,7 +8,7 @@ const ua = new UAParser(navigator.userAgent, {
 
 const target = (() => {
     const hash = decodeURIComponent(window.location.hash)
-    return (hash && hash.includes('/')) ?
+    return (hash && hash.includes(':')) ?
         hash.slice(1) : ''
 })()
 
