@@ -1,29 +1,26 @@
-# Connex ENV Landing Page
+# Connex Environment
 
-## Project setup
-```
-npm install
-```
+> The landing page leads user to download Connex powered VeChain wallets.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+[View](https://env.vechain.org/)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## VeChain App Bootstrapping
 
-### Run your tests
-```
-npm run test
+VeChain apps are usually web apps. On app load, you always need to detect Connex component. If Connex is not available, you may instruct people to setup Connex environment.
+
+To simplify these steps, simply perform redirection: 
+
+```javascript
+if(!window.connex) {
+    location.href = 'https://env.vechain.org/#' + encodeURIComponent(location.href)
+}
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+Additionally, network can be specified:
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```javascript
+if(!window.connex) {
+    // the app prefers running on test net
+    location.href = 'https://env.vechain.org/#/test/' + encodeURIComponent(location.href)
+}
+```
