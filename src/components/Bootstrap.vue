@@ -63,13 +63,16 @@ export default class Bootstrap extends Vue {
 <style lang="scss" scoped>
 .target {
     display: inline-flex;
-    background-color: rgba(0, 0, 0, 0.02);
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 0.2rem 1rem;
     max-width: 95%;
     min-width: 50%;
     cursor: pointer;
+    transition: all 0.2s;
+}
+.target:hover {
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 .btn-download {
