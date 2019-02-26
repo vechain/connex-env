@@ -12,7 +12,7 @@
                 </div>
                 <p
                     style="font-size:1rem;"
-                >Sync provides a seamless experience for users and developers. Which is designed to provide the superior user experiences on the dApps on the VeChainThor blockchain. It serves as the dApp environment to provide unlimited potential for developers and users.</p>
+                >Sync provides a seamless experience for users and developers. Which is designed to provide the superior user experiences for VeChain Apps. It serves as the dApp environment to provide unlimited potential for developers and users.</p>
                 <div class="text-center">
                     <template v-if="preferredAsset">
                         <a
@@ -20,12 +20,18 @@
                             :href="preferredAsset.url"
                             target="_blank"
                         >Download Sync</a>
-                        <p
-                            class="py-2 caption"
-                        >{{$env.syncReleases[0].version}} for {{$env.platform | osName}} ({{preferredAsset.size | size}})</p>
+                        <div
+                            class="my-2 caption"
+                        >{{$env.syncReleases[0].version}} for {{$env.platform | osName}} ({{preferredAsset.size | size}})</div>
                     </template>
-                    <p v-else>
+                    <div v-else>
                         <a class="btn btn-primary btn-download" href="#downloads">Download Sync</a>
+                    </div>
+                    <p>
+                        <a
+                            class="caption"
+                            href="https://github.com/vechain/thor-sync.electron/wiki#user-guide"
+                        >User Guide</a>
                     </p>
                 </div>
             </div>
@@ -71,7 +77,7 @@ export default class SyncPage extends Vue {
     width: 100%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     border-radius: 3px;
-    border-style: none;
+    border-style: none;    
 }
 .btn-download {
     padding: 0.4rem 1.5rem;

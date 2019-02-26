@@ -1,26 +1,36 @@
 <template>
-    <div class="container text-center" style="margin-top:3rem;">
-        <span
-            class="label label-warning"
-            style="padding: 0.2rem 1rem;"
-        >Your browser is missing Connex to run VeChain App</span>
-        <div class="py-2 caption">Target URL</div>
-        <div style="margin-bottom:2rem;">
-            <div class="target flex-centered text-serif" @click="open">{{$env.target.href}}</div>
+    <div class="text-center">
+        <div class="bg-dark">
+            <div class="container grid-lg" style="padding:2.5rem 0rem;">
+                <div style="font-size: 1rem;">Unable to launch the VeChain App</div>
+                <div style="margin: 1rem 0rem;">
+                    <i class="icon icon-link mr-2"/>
+                    <div class="target flex-centered text-serif" @click="open">{{$env.target.href}}</div>
+                </div>
+                <div>
+                    Your browser is missing Connex environment.
+                    <a
+                        class="c-hand text-italic"
+                        style="color:currentColor"
+                    >Learn more.</a>
+                </div>
+            </div>
         </div>
-        <p v-if="openFailed">Seems VeChain Sync is not installed</p>
-        <template v-if="preferredAsset">
-            <a
-                class="btn btn-primary btn-download"
-                :href="preferredAsset.url"
-                target="_blank"
-            >Download Sync</a>
-            <p
-                class="py-2 caption"
-            >{{$env.syncReleases[0].version}} for {{$env.platform | osName}} ({{preferredAsset.size | size}})</p>
-        </template>
-        <h5>All supported platforms</h5>
-        <DownloadAssets :assets="$env.syncReleases[0].assets"/>
+        <div class="container grid-lg" style="margin-top: 2rem;">
+            <p v-if="openFailed">Seems VeChain Sync is not installed</p>
+            <template v-if="preferredAsset">
+                <a
+                    class="btn btn-primary btn-download"
+                    :href="preferredAsset.url"
+                    target="_blank"
+                >Download Sync</a>
+                <p
+                    class="py-2 caption"
+                >{{$env.syncReleases[0].version}} for {{$env.platform | osName}} ({{preferredAsset.size | size}})</p>
+            </template>
+            <h5>All supported platforms</h5>
+            <DownloadAssets :assets="$env.syncReleases[0].assets"/>
+        </div>
     </div>
 </template>
 <script lang="ts">
@@ -63,16 +73,16 @@ export default class Bootstrap extends Vue {
 <style lang="scss" scoped>
 .target {
     display: inline-flex;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     padding: 0.2rem 1rem;
     max-width: 95%;
-    min-width: 50%;
+    min-width: 16rem;
     cursor: pointer;
     transition: all 0.2s;
 }
 .target:hover {
-    background-color: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(255, 255, 255, 1);
 }
 
 .btn-download {

@@ -5,6 +5,7 @@ import './assets/style.scss'
 import './filters'
 import VueAnalytics from 'vue-analytics'
 import env from './env'
+import 'spectre.css/dist/spectre-icons.css'
 
 Vue.config.productionTip = false
 

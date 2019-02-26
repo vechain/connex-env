@@ -1,16 +1,18 @@
 <template>
     <div>
-        <div class="bg-primary px-2 head-sec">
+        <div class="bg-primary px-2">
             <div class="container grid-lg">
                 <div class="navbar">
                     <section class="navbar-section" style="margin: 0px -0.4rem;">
                         <a class="nav-link" href="https://www.vechain.org/">VeChain Foundation</a>
                     </section>
                     <section class="navbar-section">
-                        <a class="nav-link" href="https://github.com/vechain">Github</a>
+                        <a class="nav-link" href="https://github.com/vechain">
+                            <img src="../assets/github-logo.svg" width="18" height="18">
+                        </a>
                     </section>
                 </div>
-                <div class="hero" style="margin-top:-1rem;">
+                <div style="margin:2rem 0rem;">
                     <h1 style="font-weight:200;margin-bottom:0rem;">VeChain Wallets</h1>
                     <div>
                         <a
@@ -20,11 +22,23 @@
                         >Connex Powered</a>
                     </div>
                 </div>
+                <div class="text-center">
+                    <span
+                        class="tab-item c-hand"
+                        @click="switchTab('#sync')"
+                        :class="{active: hash!=='#comet'}"
+                    >Sync</span>
+                    <span
+                        class="tab-item c-hand"
+                        @click="switchTab('#comet')"
+                        :class="{active: hash==='#comet'}"
+                    >Comet</span>
+                </div>
             </div>
         </div>
         <div style="padding:4rem 0rem;">
-            <SyncPage/>
-            <!-- <CometPage/> -->
+            <CometPage v-if="hash==='#comet'"/>
+            <SyncPage v-else/>
         </div>
     </div>
 </template>
@@ -40,7 +54,12 @@ import CometPage from './CometPage.vue'
     }
 })
 export default class Home extends Vue {
+    private hash = location.hash
 
+    private switchTab(hash: string) {
+        location.href = hash
+        this.hash = hash
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -49,8 +68,14 @@ export default class Home extends Vue {
     color: currentColor;
 }
 
-.head-sec {
-    position: relative;
-    justify-content: center;
+.tab-item {
+    padding: 0.1rem 0.6rem;
+    margin: 0rem 0.5rem;
+    color: currentColor;
+    text-decoration: none;
+}
+.tab-item.active {
+    font-size: 1rem;
+    border-bottom: 2px solid white;
 }
 </style>
