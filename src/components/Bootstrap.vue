@@ -10,8 +10,9 @@
                 <div>
                     Your browser is missing Connex environment.
                     <a
-                        class="c-hand text-italic"
+                        class="text-italic"
                         style="color:currentColor"
+                        href="https://github.com/vechain/connex#introduction"
                     >Learn more.</a>
                 </div>
             </div>
