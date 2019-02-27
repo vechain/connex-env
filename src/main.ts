@@ -20,7 +20,7 @@ if (env.target.href && window.connex) {
     Vue.use(VueAnalytics, {
         id: 'UA-132391998-2'
     })
-    new App().$mount('#app')
+    new App().$mount('#app', true)
 }
 
 declare module 'vue/types/vue' {

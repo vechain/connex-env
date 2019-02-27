@@ -12,6 +12,7 @@
                     <a
                         class="text-italic"
                         style="color:currentColor"
+                        target="_blank"
                         href="https://github.com/vechain/connex#introduction"
                     >Learn more.</a>
                 </div>

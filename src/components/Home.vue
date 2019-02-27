@@ -37,8 +37,8 @@
             </div>
         </div>
         <div style="padding:4rem 0rem;">
-            <CometPage v-if="hash==='#comet'"/>
-            <SyncPage v-else/>
+            <SyncPage v-show="hash!=='#comet'"/>
+            <CometPage v-show="hash==='#comet'"/>
         </div>
     </div>
 </template>

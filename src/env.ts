@@ -13,7 +13,13 @@ const target = (() => {
 })()
 
 const env = {
+    get prerender() {
+        return !!(window as any).$PRERENDER
+    },
     get platform(): NodeJS.Platform | undefined {
+        if (this.prerender) {
+            return undefined
+        }
         switch (ua.getOS().name) {
             case 'Mac OS':
                 return 'darwin'
