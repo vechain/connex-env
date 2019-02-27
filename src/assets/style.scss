@@ -4,7 +4,11 @@ $primary-color: #384eb0;
 html,
 body {
   height: 100%;
-  overflow: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .text-serif {
