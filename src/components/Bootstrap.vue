@@ -52,6 +52,9 @@ export default class Bootstrap extends Vue {
     private showDownloads = false
 
     get preferredAsset() { return this.$env.preferredAsset(this.$env.syncReleases[0].assets) }
+    private created() {
+        this.$ga.page('/connex-env/bootstrap')
+    }
 
     private mounted() {
         setTimeout(() => this.open(), 500)

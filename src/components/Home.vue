@@ -56,6 +56,10 @@ import CometPage from './CometPage.vue'
 export default class Home extends Vue {
     private hash = location.hash
 
+    private created() {
+        this.$ga.page('/connex-env/home')
+    }
+
     private switchTab(hash: string) {
         location.href = hash
         this.hash = hash

@@ -16,8 +16,5 @@ import Bootstrap from './components/Bootstrap.vue'
     },
 })
 export default class App extends Vue {
-    public created() {
-        this.$ga.page('/connex-env')
-    }
 }
 </script>
