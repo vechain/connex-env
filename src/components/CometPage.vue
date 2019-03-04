@@ -2,11 +2,11 @@
     <div class="container grid-lg">
         <div class="columns">
             <div class="column col-lg-7 col-md-12 text-center">
-                <img class="screenshot" src="../assets/comet-ss-dark.png">
+                <img class="screenshot" src="../assets/comet-ss-dark.png" alt="Comet Screenshot">
             </div>
             <div class="column col-lg-5 col-md-12">
                 <div class="text-center" style="margin-bottom:1rem;">
-                    <img width="128" height="128" src="../assets/comet-logo.png">
+                    <img width="128" height="128" src="../assets/comet-logo.png" alt="Comet logo">
                     <h2>Comet</h2>
                     <div class="text-gray">
                         by
@@ -15,7 +15,7 @@
                 </div>
                 <p
                     style="font-size:1rem;"
-                >Comet is a Chrome extension that enables you to explore the world of decentralized applications on the VeChain.</p>
+                >Comet is a Chrome extension that enables you to explore the world of decentralized applications on VeChain.</p>
                 <div class="text-center">
                     <a
                         class="btn btn-primary btn-download"

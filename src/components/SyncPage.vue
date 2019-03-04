@@ -3,16 +3,17 @@
         <div class="columns" style="margin-bottom:5rem;">
             <div class="column col-lg-5 col-md-12">
                 <div class="text-center" style="margin-bottom:1rem;">
-                    <img width="128" height="128" src="../assets/sync-logo.png">
+                    <img width="128" height="128" src="../assets/sync-logo.png" alt="VeChain Sync Logo">
                     <h2>Sync</h2>
                     <div class="caption">
                         by
                         <a href="https://www.vechain.org/">VeChain Foundation</a>
                     </div>
                 </div>
-                <p
+                <div
                     style="font-size:1rem;"
-                >Sync provides a seamless experience for users and developers. Which is designed to provide the superior user experiences for VeChain Apps. It serves as the dApp environment to provide unlimited potential for developers and users.</p>
+                ><i>Sync</i> is the official desktop wallet firstly supports <i>Connex</i>. It provides seamless experience for users and developers. Which is designed to provide the superior user experiences for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users.</div>
+                <br>
                 <div class="text-center">
                     <template v-if="preferredAsset">
                         <a
@@ -40,8 +41,9 @@
                     class="screenshot"
                     style="margin-bottom:2rem"
                     src="../assets/sync-ss-light.png"
+                    alt="VeChain Sync Screenshot - light theme"
                 >
-                <img class="screenshot" src="../assets/sync-ss-dark.png">
+                <img class="screenshot" src="../assets/sync-ss-dark.png" alt="VeChain Sync Screenshot - dark theme">
             </div>
         </div>
         <div class="text-center" style="margin-bottom:5rem;">
@@ -77,7 +79,7 @@ export default class SyncPage extends Vue {
     width: 100%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     border-radius: 3px;
-    border-style: none;    
+    border-style: none;
 }
 .btn-download {
     padding: 0.4rem 1.5rem;
