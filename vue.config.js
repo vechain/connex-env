@@ -18,6 +18,9 @@ module.exports = {
                 new HtmlWebpackPlugin({
                     filename: 'r/index.html',
                     template: 'public/index.html',
+                    templateParameters: {
+                        BASE_URL: '/'
+                    },
                     minify: {
                         collapseWhitespace: true,
                         removeComments: true,
@@ -40,6 +43,7 @@ module.exports = {
                     })
                 }))
             }
+            return items
         })()
     }
 }
