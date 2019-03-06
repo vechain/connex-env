@@ -2,11 +2,11 @@
     <div class="text-center">
         <div class="bg-dark">
             <div class="container grid-lg" style="padding:2.5rem 0rem;">
-                <div style="font-size: 1rem;">Unable to launch the VeChain App</div>
                 <div style="margin: 1rem 0rem;">
                     <i class="icon icon-link mr-2"/>
                     <div class="target flex-centered text-serif" @click="open">{{$env.target.href}}</div>
                 </div>
+                <div>Unable to launch the VeChain App.</div>
                 <div>
                     Your browser is missing Connex environment.
                     <a
@@ -78,16 +78,13 @@ export default class Bootstrap extends Vue {
 <style lang="scss" scoped>
 .target {
     display: inline-flex;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
     padding: 0.2rem 1rem;
     max-width: 95%;
     min-width: 16rem;
     cursor: pointer;
     transition: all 0.2s;
-}
-.target:hover {
-    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: white;
+    color: #404040;
 }
 
 .btn-download {
