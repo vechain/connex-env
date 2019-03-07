@@ -23,7 +23,7 @@
                         >Download Sync</a>
                         <div
                             class="my-2 caption"
-                        >{{$env.syncReleases[0].version}} for {{$env.platform | osName}} ({{preferredAsset.size | size}})</div>
+                        >v{{$env.syncReleases[0].version}} for {{$env.platform | osName}} ({{preferredAsset.size | size}})</div>
                     </template>
                     <div v-else>
                         <a class="btn btn-primary btn-download" href="#downloads">Download Sync</a>

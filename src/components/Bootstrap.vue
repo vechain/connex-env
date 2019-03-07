@@ -18,8 +18,10 @@
                 </div>
             </div>
         </div>
-        <div class="container grid-lg" style="margin-top: 2rem;">
-            <p v-if="openFailed">Seems VeChain Sync is not installed</p>
+        <div class="container grid-lg" style="margin-top: 1rem;">
+            <p>Install
+                <i>VeChain Sync</i> to continue
+            </p>
             <template v-if="preferredAsset">
                 <a
                     class="btn btn-primary btn-download"
@@ -28,10 +30,13 @@
                 >Download Sync</a>
                 <p
                     class="py-2 caption"
-                >{{$env.syncReleases[0].version}} for {{$env.platform | osName}} ({{preferredAsset.size | size}})</p>
+                >v{{$env.syncReleases[0].version}} for {{$env.platform | osName}} ({{preferredAsset.size | size}})</p>
             </template>
             <h5>All supported platforms</h5>
             <DownloadAssets :assets="$env.syncReleases[0].assets"/>
+        </div>
+        <div class="container grid-lg" style="margin-top: 2rem;">
+            <a href="/">Other Downloads</a>
         </div>
     </div>
 </template>
@@ -40,7 +45,6 @@ import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 // tslint:disable-next-line:no-var-requires
 const customProtocolDetection = require('custom-protocol-detection')
 import DownloadAssets from './DownloadAssets.vue'
-import { setTimeout } from 'timers';
 
 @Component({
     components: {
@@ -57,7 +61,7 @@ export default class Bootstrap extends Vue {
     }
 
     private mounted() {
-        setTimeout(() => this.open(), 500)
+        setTimeout(() => this.open(), 100)
     }
     private open() {
         const fallback = () => {
