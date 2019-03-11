@@ -18,7 +18,8 @@ if (env.target.href && window.connex) {
         }
     })
     Vue.use(VueAnalytics, {
-        id: 'UA-132391998-2'
+        id: 'UA-132391998-2',
+        disabled: process.env.NODE_ENV !== 'production'
     })
     new App().$mount('#app', true)
 }

@@ -4,7 +4,11 @@
             <div class="container grid-lg" style="padding:2.5rem 0rem;">
                 <div style="margin: 1rem 0rem;">
                     <i class="icon icon-link mr-2"/>
-                    <div class="target flex-centered text-serif" @click="open">{{$env.target.href}}</div>
+                    <div class="target text-serif" @click="open" :title="$env.target.href">
+                        <span
+                            style="text-overflow: ellipsis;white-space:nowrap;overflow:hidden;"
+                        >{{$env.target.href}}</span>
+                    </div>
                 </div>
                 <div>Unable to launch the VeChain App.</div>
                 <div>
@@ -19,7 +23,8 @@
             </div>
         </div>
         <div class="container grid-lg" style="margin-top: 1rem;">
-            <p>Install
+            <p>
+                Install
                 <i>VeChain Sync</i> to continue
             </p>
             <template v-if="preferredAsset">
