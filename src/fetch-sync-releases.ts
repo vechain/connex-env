@@ -19,7 +19,7 @@ function getPlatform(ymlUrl: string): NodeJS.Platform {
 }
 async function fetchReleases() {
     const releases: Release[] = []
-    const data = await httpGet('https://api.github.com/repos/vechain/thor-sync.electron/releases')
+    const data = await httpGet('https://api.github.com/repos/vechain/thor-sync.electron/releases' + (process.env['GH_TOKEN'] ? '?access_token=' + process.env['GH_TOKEN'] : ''))
     const items = JSON.parse(data) as any[]
     for (const item of items) {
         const assets: Release.Asset[] = []
