@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import _https from 'https'
+import http from 'http'
 // tslint:disable-next-line:no-var-requires
 const https = require('follow-redirects').https as typeof _https
 import { writeFileSync } from 'fs'
@@ -19,7 +20,11 @@ function getPlatform(ymlUrl: string): NodeJS.Platform {
 }
 async function fetchReleases() {
     const releases: Release[] = []
-    const data = await httpGet('https://api.github.com/repos/vechain/thor-sync.electron/releases')
+    const header: http.OutgoingHttpHeaders = {}
+    if (process.env['GH_TOKEN']) {
+        header.Authorization = 'token ' + process.env['GH_TOKEN']
+    }
+    const data = await httpGet('https://api.github.com/repos/vechain/thor-sync.electron/releases', header)
     const items = JSON.parse(data) as any[]
     for (const item of items) {
         const assets: Release.Asset[] = []
@@ -48,11 +53,14 @@ async function fetchReleases() {
     return releases
 }
 
-function httpGet(url: string) {
+function httpGet(url: string, header = {}) {
     return new Promise<string>((resolve, reject) => {
         https.get(url,
-            { headers: { 'User-Agent': 'Mozilla/5.0' } },
+            { headers: { 'User-Agent': 'Mozilla}/5.0', ...header } },
             res => {
+                if (res.statusCode !== 200) {
+                    reject(new Error('Invalid response code: ' + res.statusCode))
+                }
                 const chunks: Buffer[] = []
                 res.on('data', chunk => {
                     chunks.push(chunk)
