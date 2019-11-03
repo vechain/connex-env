@@ -27,7 +27,7 @@
     "@vue/cli-plugin-typescript": "^3.3.0",
     "@vue/cli-service": "^3.3.0",
     "follow-redirects": "^1.6.1",
-    "js-yaml": "^3.12.1",
+    "js-yaml": "^3.13.1",
     "node-sass": "^4.9.0",
     "prerender-spa-plugin": "^3.4.0",
     "sass-loader": "^7.0.1",
