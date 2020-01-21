@@ -26,31 +26,31 @@
                     <span
                         class="tab-item c-hand"
                         @click="switchTab('#sync')"
-                        :class="{active: hash!=='#comet'}"
+                        :class="{active: hash!=='#thor-wallet'}"
                     >Sync</span>
                     <span
                         class="tab-item c-hand"
-                        @click="switchTab('#comet')"
-                        :class="{active: hash==='#comet'}"
-                    >Comet</span>
+                        @click="switchTab('#thor-wallet')"
+                        :class="{active: hash==='#thor-wallet'}"
+                    >VeChainThor Wallet</span>
                 </div>
             </div>
         </div>
         <div style="padding:4rem 0rem;">
-            <SyncPage v-show="hash!=='#comet'"/>
-            <CometPage v-show="hash==='#comet'"/>
+            <SyncPage v-show="hash !== '#thor-wallet'"/>
+            <ThorWalletPage v-show="hash === '#thor-wallet'"/>
         </div>
     </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import SyncPage from './SyncPage.vue'
-import CometPage from './CometPage.vue'
+import ThorWalletPage from './ThorWalletPage.vue'
 
 @Component({
     components: {
         SyncPage,
-        CometPage
+        ThorWalletPage
     }
 })
 export default class Home extends Vue {
