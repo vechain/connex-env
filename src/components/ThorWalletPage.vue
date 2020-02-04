@@ -49,14 +49,14 @@
                         >Android User Manual</a>
                     </p>
                 </div>
-                <div class="column col-lg-7 col-md-12 text-center">
+            </div>
+            <div class="column col-lg-7 col-md-12 text-center">
                 <img
                     class="screenshot"
                     style="margin-top:2rem"
                     src="../assets/thor-ss-wallet.png"
                     alt="wallet screenshot"
                 >
-            </div>
             </div>
         </div>
     </div>

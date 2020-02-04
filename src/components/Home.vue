@@ -32,7 +32,7 @@
                         class="tab-item c-hand"
                         @click="switchTab('#thor-wallet')"
                         :class="{active: hash==='#thor-wallet'}"
-                    >VeChainThor Wallet</span>
+                    >Thor Wallet</span>
                 </div>
             </div>
         </div>
