@@ -34,6 +34,8 @@
                     </p>
                     <br/>
                     <a
+                        style="height:58px; overflow: hidden;"
+                        class="d-block"
                         href="https://play.google.com/store/apps/details?id=com.vechain.wallet&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
                     >
                         <img
@@ -54,7 +56,7 @@
                 <img
                     class="screenshot"
                     style="margin-top:2rem"
-                    src="../assets/thor-ss-wallet.png"
+                    src="../assets/thorwallet-ss.png"
                     alt="wallet screenshot"
                 >
             </div>
@@ -65,7 +67,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component
-export default class CometPage extends Vue {}
+export default class ThorWalletPage extends Vue {}
 </script>
 <style lang="scss" scoped>
 .screenshot {
