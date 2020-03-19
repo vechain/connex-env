@@ -21,8 +21,8 @@ function getPlatform(ymlUrl: string): NodeJS.Platform {
 async function fetchReleases() {
     const releases: Release[] = []
     const header: http.OutgoingHttpHeaders = {}
-    if (process.env['GH_TOKEN']) {
-        header.Authorization = 'token ' + process.env['GH_TOKEN']
+    if (process.env.GH_TOKEN) {
+        header.Authorization = 'token ' + process.env.GH_TOKEN
     }
     const data = await httpGet('https://api.github.com/repos/vechain/thor-sync.electron/releases', header)
     const items = JSON.parse(data) as any[]
@@ -38,7 +38,10 @@ async function fetchReleases() {
 
         for (const asset of ymlAssets) {
             const yml = JSYaml.safeLoad(await httpGet(asset.browser_download_url))
-            const file = (yml.files as any[]).find(f => f.size)
+            const file = (yml.files as any[])
+                .find(f =>
+                    f.url.endsWith('.exe') || f.url.endsWith('.dmg') || f.url.endsWith('.AppImage')
+                )
             if (file) {
                 assets.push({
                     fileName: file.url,
