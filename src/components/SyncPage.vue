@@ -31,7 +31,7 @@
                     <p>
                         <a
                             class="caption"
-                            href="https://github.com/vechain/thor-sync.electron/wiki#user-guide"
+                            href="https://docs.vechain.org/sync/user-guide/"
                         >User Guide</a>
                     </p>
                 </div>
