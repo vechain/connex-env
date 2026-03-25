@@ -22,7 +22,7 @@
     "@types/js-yaml": "^3.12.0",
     "@types/node": "^10.12.19",
     "@types/ua-parser-js": "^0.7.32",
-    "@vechain/connex": "^1.0.0",
+    "@vechain/connex": "^2.3.2",
     "@vue/cli-plugin-pwa": "^3.3.0",
     "@vue/cli-plugin-typescript": "^3.3.0",
     "@vue/cli-service": "^3.3.0",
